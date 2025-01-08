@@ -1,0 +1,55 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5>Welcome to the dashboard page, {{user}}!</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'webapp:create-record' %}">
+        Create a new record &nbsp;
+        <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+
+    <hr>
+
+    <table class="table table-light table-hover table-bordered">
+        <thead class="table-secondary">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
+                <th scope="col">Country</th>
+                <th scope="col">Date Joined</th>
+                <th scope="col">View</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if records %}
+            {% for record in records %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ record }}</td>
+                    <td>{{ record.email }}</td>
+                    <td>{{ record.phone }}</td>
+                    <td>{{ record.address }}</td>
+                    <td>{{ record.city }}</td>
+                    <td>{{ record.province }}</td>
+                    <td>{{ record.country }}</td>
+                    <td>{{ record.creation_date }}</td>
+                    <td class="btn-group-vertical w-100" role="group">
+                        <a href="{% url 'webapp:record' record.id %}" class="btn btn-success btn-sm">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}
