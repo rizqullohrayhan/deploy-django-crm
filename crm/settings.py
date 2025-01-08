@@ -87,7 +87,7 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_crm',
+        'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'eBLS.FjzkLX.Js4',
         'HOST': 'db.ewsjnuzyvlvliwshpnwt.supabase.co',
