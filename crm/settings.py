@@ -91,7 +91,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': 'eBLS.FjzkLX.Js4',
         'HOST': 'db.ewsjnuzyvlvliwshpnwt.supabase.co',
-        'PORT': '5432',
+        'PORT': '6543',
     }
 }
 
