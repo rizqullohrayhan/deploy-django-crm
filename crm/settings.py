@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
+from django.db import connection
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -94,6 +96,14 @@ DATABASES = {
         'PORT': '6543',
     }
 }
+
+SCHEMA_NAME = 'crm'
+
+def set_schema(schema_name):
+    with connection.cursor() as cursor:
+        cursor.execute(f"SET search_path TO {schema_name}")
+
+set_schema(SCHEMA_NAME)
 
 
 # Password validation
